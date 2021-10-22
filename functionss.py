@@ -76,3 +76,21 @@ def basic():
     print('got here')
 
 basic()
+
+
+
+
+# #- Method 2: from Thread Inherit and rewrite run()
+class MyThread(threading.Thread):
+    def __init__(self,arg):
+        super(MyThread, self).__init__()#Note: be sure to explicitly call the initialization function of the parent class.
+        self.arg=arg
+    def run(self):#Define the function to run for each thread
+        time.sleep(1)
+        print('the arg is:%s\r' % self.arg)
+
+for i in range(4):
+    t =MyThread(i)
+    t.start()
+
+print('main thread end!')
