@@ -1,0 +1,55 @@
+
+
+
+def clear():
+    # check and make call for specific operating system
+    os_name = platform.system()
+    _ = call('clear' if os_name == 'Linux' or 'Windows' or 'Darwin' else 'cls')
+
+subprocess.call('clear', shell=True)
+
+discover_ap = subprocess.Popen(
+['sudo', 'airodump-ng', '-w', 'attack', '--write-interval', '1', '--output-format', 'csv',
+nic + 'mon'], stdout=PIPE, stderr=PIPE, stdin=PIPE)
+
+
+
+def install():
+    try:
+        sucessfull_install = []
+        subprocess.check_call([sys.executable, "-m", "pip", "install", threading])
+        if subprocess.check_call:
+            print(f'{yellow} Sucessfully Installed PIP')
+            sucessfull_install.append('pip')
+        subprocess.check_call([sys.executable, "-m", "tqdm", "install", tqdm])
+        if subprocess.check_call:
+            print(f'{yellow} Sucessfully Installed TQDM')
+            sucessfull_install.append('TQDM')
+        subprocess.check_call([sys.executable, "-m", "pip", "datetime", datetime])
+        if subprocess.check_call:
+            print(f'{yellow} Sucessfully Installed datetime')
+            sucessfull_install.append('datetime')
+        subprocess.check_call([sys.executable, "-m", "pip", "net-tools", net-tools])
+        if subprocess.check_call:
+            print(f'{yellow} Sucessfully Installed datetime')
+            sucessfull_install.append('net-tools')
+        subprocess.check_call([sys.executable, "-m", "apt install", "airmon-ng", airmon-ng])
+        if subprocess.check_call:
+            print(f'{yellow} Sucessfully Installed airmon-ng')
+            sucessfull_install.append('airmong-ng')
+        print(f'{yellow}**Installed Dependencies {reset}\n{sucessfull_install}')
+
+    except subprocess.CalledProcessError as sub0:
+        traceback.print_exc()
+        print(f'{red} SUBPROCESS CALL ERROR {reset}\n{str(sub0)}')
+    except subprocess.TimeoutExpired as sub1:
+        traceback.print_exc()
+        print(f'{red} SUBPROCESS CALL ERROR {reset}\n{str(sub1)}')
+    except subprocess.SubprocessError as sub2:
+        traceback.print_exc()
+        print(f'{red} SUBPROCESS CALL ERROR {reset}\n{str(sub2)}')
+
+
+
+
+
