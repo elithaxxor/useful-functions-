@@ -10,6 +10,13 @@
         print(f'{red} SUBPROCESS CALL ERROR {reset}\n{str(sub2)}')
         
         
+        
+ except WebDriverException:
+    print("page down")       
+        
+
+        
+        
     except EOFError as EOF:
         traceback.print_exc()
         print(str(EOF))
