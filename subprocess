@@ -13,6 +13,23 @@ discover_ap = subprocess.Popen(
 nic + 'mon'], stdout=PIPE, stderr=PIPE, stdin=PIPE)
 
 
+
+    output_pipe = subprocess.run(
+        [sys.executable, "//Users//adelal-aali//Documents//CS/PROJECT//django_pythonScripts01//blog//IPQUERY.py"],
+        stdout=PIPE, stderr=PIPE, shell=False, check=True, text=True, input=f'{uinput}')  # , stdin=input))
+
+    print(output_pipe)
+
+
+
+##### TO EXECECUTE EXTERNAL PY SCRIPT, AND TAKE INPUT
+  result = subprocess.run(
+        [sys.executable, "//Users//adelal-aali//Documents//CS/PROJECT//django_pythonScripts01//blog//IPQUERY.py"], stdout=PIPE, stderr=PIPE, shell=False, check=True, text=True, input=f'{uinput}')  # , stdin=input))
+
+    print(result)
+
+
+
 # -*- coding: utf-8 -*-
 
 import subprocess, sys, os
