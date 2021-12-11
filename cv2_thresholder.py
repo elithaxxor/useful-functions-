@@ -30,5 +30,22 @@ cv2.imshow("Threshold Binary Inverse", threshInv)
 	cv2.THRESH_BINARY_INV)
 cv2.imshow("Threshold Binary Inverse", threshInv)
 
+### CV2 DILATE 
+'''
+cv2 dilate can only take binary, used to exoand/contract foreground boundries.
 
+Image dilation is helpful because if you have performed erosion, then erosion already removed the white noises, but it also contracts our object. 
+So we dilate it. Since the noise is gone, they won’t come back, but our object area increases. Dilation is useful in joining broken parts of an object.
 
+'''
+import numpy as np
+import cv2
+
+img = cv2.imread('data.png', 1)
+cv2.imshow('Original', img)
+
+kernel = np.ones((5, 5), 'uint8')
+dilate_img = cv2.dilate(img, kernel, iterations=1)
+cv2.imshow('Dilated Image', dilate_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
