@@ -49,3 +49,16 @@ dilate_img = cv2.dilate(img, kernel, iterations=1)
 cv2.imshow('Dilated Image', dilate_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+'''
+Use cv2 find countour to find countours (contiounous lines) - best used with binary images 
+
+'''
+import numpy as np
+import cv2 as cv
+im = cv.imread('test.jpg')
+imgray = cv.cvtColor(im, cv.COLOR_BGR2GRAY)
+ret, thresh = cv.threshold(imgray, 127, 255, 0)
+contours, hierarchy = cv.findContours(thresh, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+
+
