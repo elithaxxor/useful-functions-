@@ -12,6 +12,8 @@ import cv2
 ## ELSE SET IT TO WHITE 
 '''
 
+
+
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", type=str, required=True,
@@ -29,6 +31,7 @@ cv2.imshow("Threshold Binary Inverse", threshInv)
 (T, threshInv) = cv2.threshold(blurred, 200, 255,
 	cv2.THRESH_BINARY_INV)
 cv2.imshow("Threshold Binary Inverse", threshInv)
+
 
 ### CV2 DILATE 
 '''
@@ -61,4 +64,7 @@ imgray = cv.cvtColor(im, cv.COLOR_BGR2GRAY)
 ret, thresh = cv.threshold(imgray, 127, 255, 0)
 contours, hierarchy = cv.findContours(thresh, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
 
-
+# visualize only the countours regions in the image
+masked = cv2.bitwise_and(image, image, mask=threshInv)
+cv2.imshow("Countours", contours)
+cv2.waitKey(0)
